@@ -3,7 +3,9 @@ const userInput = args.slice(2);
 
 const checkUserInput = (userInput) => {
     if (!userInput || userInput.length !== 1) {
-        console.log("Invalid!ONLY Rock, Paper, Scissor input allowed!");
+        console.log(
+            "Hold up! Only rock, paper, or scissors are allowed—no wildcards in this game!"
+        );
         process.exit(0);
     }
     const userInputLower = userInput[0].toLowerCase();
@@ -15,7 +17,9 @@ const checkUserInput = (userInput) => {
         case "scissor":
             return userInputLower;
         default:
-            console.log("Invalid!ONLY Rock, Paper, Scissor input allowed!");
+            console.log(
+                "Hold up! Only rock, paper, or scissors are allowed—no wildcards in this game!"
+            );
             process.exit(0);
     }
 };
@@ -48,12 +52,12 @@ const checkResults = (validUserInput, computerInput) => {
 
 const buildOutputString = (validUserInput, computerInput, outputString) => {
     if (outputString === "draw") {
-        return `You chose ${validUserInput}. Computer chose ${computerInput}. Yikes! it's a ${outputString}!`;
+        return `You chose ${validUserInput}. Computer chose ${computerInput}.\nYikes! it's a ${outputString}——looks like the universe loves balance!`;
     } else {
-        return `You chose ${validUserInput}. Computer chose ${computerInput}. ${
+        return `You chose ${validUserInput}. Computer chose ${computerInput}.\n${
             outputString === "win"
-                ? "Yay congrats, you win!"
-                : "Opps you lose, maybe next time?"
+                ? "Yay congrats, you win! Clearly, you're the chosen one. ^^"
+                : "Opps you lose, Let's blame it on some cheat codes, shall we?"
         }`;
     }
 };
