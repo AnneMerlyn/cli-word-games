@@ -45,12 +45,12 @@ const checkResults = (validUserInput, computerInput) => {
     }
 };
 
-const buildOutputString = (validUserInput, computerInput, outputString) => {
-    if (outputString === "draw") {
-        return `You chose ${validUserInput}. Computer chose ${computerInput}.\nYikes! it's a ${outputString}——looks like the universe loves balance!`;
+const buildOutputString = (validUserInput, computerInput, state) => {
+    if (state === "draw") {
+        return `You chose ${validUserInput}. Computer chose ${computerInput}.\nYikes! it's a ${state}——looks like the universe loves balance!`;
     } else {
         return `You chose ${validUserInput}. Computer chose ${computerInput}.\n${
-            outputString === "win"
+            state === "win"
                 ? "Yay congrats, you win! Clearly, you're the chosen one. ^^"
                 : "Opps you lose, Let's blame it on some cheat codes, shall we?"
         }`;
