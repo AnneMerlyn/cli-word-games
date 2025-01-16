@@ -1,5 +1,4 @@
-const args = process.argv;
-const userInput = args.slice(2);
+const userInput = process.argv.slice(2);
 
 const validInputs = ["rock", "paper", "scissor"];
 
@@ -33,17 +32,16 @@ const computerInput = getComputerInput();
 //console.log(computerInput);
 
 const checkResults = (validUserInput, computerInput) => {
-    const output = ["win", "lose", "draw"];
     if (
         (validUserInput === "rock" && computerInput === "scissor") ||
         (validUserInput === "paper" && computerInput === "rock") ||
         (validUserInput === "scissor" && computerInput === "paper")
     ) {
-        return buildOutputString(validUserInput, computerInput, output[0]);
+        return buildOutputString(validUserInput, computerInput, "win");
     } else if (validUserInput === computerInput) {
-        return buildOutputString(validUserInput, computerInput, output[2]); //draw
+        return buildOutputString(validUserInput, computerInput, "draw");
     } else {
-        return buildOutputString(validUserInput, computerInput, output[1]); //lose
+        return buildOutputString(validUserInput, computerInput, "lose");
     }
 };
 
