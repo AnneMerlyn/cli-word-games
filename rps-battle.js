@@ -1,5 +1,5 @@
 const userInput = process.argv.slice(2);
-const validInputs = ["rock", "paper", "scissor"];
+const VALID_INPUTS = ["rock", "paper", "scissor"];
 
 const checkUserInput = (userInput) => {
     if (!userInput || userInput.length < 1) {
@@ -11,7 +11,7 @@ const checkUserInput = (userInput) => {
     }
 
     const userInputLower = userInput[0].toLowerCase();
-    if (!validInputs.includes(userInputLower)) {
+    if (!VALID_INPUTS.includes(userInputLower)) {
         console.log(
             "Hold up! Only rock, paper, or scissors are allowed—no wildcards in this game!"
         );
@@ -21,8 +21,8 @@ const checkUserInput = (userInput) => {
 };
 
 const getComputerInput = () => {
-    const randomIndex = Math.floor(Math.random() * validInputs.length);
-    return validInputs[randomIndex];
+    const randomIndex = Math.floor(Math.random() * VALID_INPUTS.length);
+    return VALID_INPUTS[randomIndex];
 };
 
 const checkResults = (validUserInput, computerInput) => {
