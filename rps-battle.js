@@ -1,5 +1,4 @@
 const userInput = process.argv.slice(2);
-
 const validInputs = ["rock", "paper", "scissor"];
 
 const checkUserInput = (userInput) => {
@@ -20,16 +19,11 @@ const checkUserInput = (userInput) => {
     }
     return userInputLower;
 };
-const validUserInput = checkUserInput(userInput);
-//console.log(validUserInput);
 
 const getComputerInput = () => {
     const randomIndex = Math.floor(Math.random() * validInputs.length);
     return validInputs[randomIndex];
 };
-
-const computerInput = getComputerInput();
-//console.log(computerInput);
 
 const checkResults = (validUserInput, computerInput) => {
     if (
@@ -37,24 +31,30 @@ const checkResults = (validUserInput, computerInput) => {
         (validUserInput === "paper" && computerInput === "rock") ||
         (validUserInput === "scissor" && computerInput === "paper")
     ) {
-        return buildOutputString(validUserInput, computerInput, "win");
+        buildOutputString(validUserInput, computerInput, "win");
     } else if (validUserInput === computerInput) {
-        return buildOutputString(validUserInput, computerInput, "draw");
+        buildOutputString(validUserInput, computerInput, "draw");
     } else {
-        return buildOutputString(validUserInput, computerInput, "lose");
+        buildOutputString(validUserInput, computerInput, "lose");
     }
 };
 
 const buildOutputString = (validUserInput, computerInput, state) => {
     if (state === "draw") {
-        return `You chose ${validUserInput}. Computer chose ${computerInput}.\nYikes! it's a ${state}——looks like the universe loves balance!`;
+        console.log(
+            `You chose ${validUserInput}. Computer chose ${computerInput}.\nYikes! it's a ${state}——looks like the universe loves balance!`
+        );
     } else {
-        return `You chose ${validUserInput}. Computer chose ${computerInput}.\n${
-            state === "win"
-                ? "Yay congrats, you win! Clearly, you're the chosen one. ^^"
-                : "Opps you lose, Let's blame it on some cheat codes, shall we?"
-        }`;
+        console.log(
+            `You chose ${validUserInput}. Computer chose ${computerInput}.\n${
+                state === "win"
+                    ? "Yay congrats, you win! Clearly, you're the chosen one. ^^"
+                    : "Opps you lose, Let's blame it on some cheat codes, shall we?"
+            }`
+        );
     }
 };
 
-console.log(checkResults(validUserInput, computerInput));
+const validUserInput = checkUserInput(userInput);
+const computerInput = getComputerInput();
+checkResults(validUserInput, computerInput);
